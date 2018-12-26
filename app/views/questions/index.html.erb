@@ -1,0 +1,28 @@
+<h1>Message board</h1>
+<h2>Messages</h2>
+
+<table border="1">
+  <thead>
+    <tr>
+    <th>id</th>
+    <th>name</th>
+    <th>content</th>
+    <th>option</th>
+    </tr>
+  </thead>
+
+  <tbody>
+<% @questions.each do |question|%>
+    <tr>
+      <td><%= question.id %></td>
+      <td><%= link_to question.title, question_path(question)%></td>
+      <td><%= question.content %></td>
+      <td>[<%= link_to "Edit", edit_question_path(question) %>]
+        [<%= link_to "Delete", question_path(question), method: :delete, data:{confirm: "Are you sure?"} %>]</td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+<%= link_to 'New Message', new_question_path %>
+
+
