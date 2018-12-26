@@ -16,7 +16,7 @@
       <tr>
         <td><%= answer.name %></td>
         <td><%= answer.content %></td>
-        <td>[<%= link_to 'Edit',  edit_question_answer_path(answer) %>] [Delete]</td>
+        <td>[<%= link_to 'Edit',  edit_question_answer_path(@questions, answer) %>] [Delete]</td>
       </tr>
     <% end %>
     </tbody>
