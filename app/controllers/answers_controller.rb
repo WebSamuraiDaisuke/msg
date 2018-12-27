@@ -11,7 +11,25 @@ class AnswersController < ApplicationController
 
   def edit
     @questions = Question.find(params[:question_id])
-    @answers = @questions.answers(params[:id])
+    @answers = @questions.answers.find(params[:id])
+  end
+
+  def update
+    @questions = Question.find(params[:question_id])
+    @answers = @questions.answers.find(params[:id])
+    if @answers.update(answer_params)
+      redirect_to question_path(@questions), notice: "Success!"
+    else
+      flash[:alert] = "Failed"
+      render :edit
+    end
+  end
+
+  def destroy
+    @question = Question.find(params[:question_id])
+    @answer = @question.answers.find(params[:id])
+    @answers.destroy
+    redirect_to questions_path(@question), notice: "Success!"
   end
 
   private

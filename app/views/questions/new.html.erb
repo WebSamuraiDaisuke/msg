@@ -1,5 +1,5 @@
 <%= form_with model: @questions, local:true do |form|%>
-  <%= form.text_field :title %>
-  <%= form.text_area :content  %>
+  <%= form.text_field :title , placeholder: "title"%>
+  <%= form.text_area :content, placeholder: "content"  %>
   <%= form.submit "Save"  %>
 <% end %>

@@ -16,7 +16,9 @@
       <tr>
         <td><%= answer.name %></td>
         <td><%= answer.content %></td>
-        <td>[<%= link_to 'Edit',  edit_question_answer_path(@questions, answer) %>] [Delete]</td>
+        <td>[<%= link_to 'Edit',  edit_question_answer_path(@questions, answer) %>]
+          [<%= link_to 'Delete',   question_path(@questions, answer), method: :delete,
+                       data:{ confirm: "Are you sure?"}  %>]</td>
       </tr>
     <% end %>
     </tbody>
@@ -28,7 +30,7 @@
 <%= form_with model: [@questions, @answers], locale:true do |f| %>
   <%= f.hidden_field :question_id, {value: @questions.id}  %>
   <%= f.text_field :name, placeholder: "name" %>
-  <%= f.text_area :content %>
+  <%= f.text_area :content, placeholder: "content" %>
   <%= f.submit 'save' %>
 <% end %>
 <%= link_to '>Home', root_path  %>

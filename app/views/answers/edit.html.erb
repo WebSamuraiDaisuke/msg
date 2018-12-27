@@ -1,6 +1,6 @@
 <h1>Edit Reply</h1>
 <%= form_with model: [@questions, @answers], local: true do |form| %>
-  <%= form.text_field :name  %>
-  <%= form.text_area :content %>
+  <%= form.text_field :name, placeholder: "name"  %>
+  <%= form.text_area :content, placeholder: "content" %>
   <%= form.submit 'change' %>
 <% end %>
