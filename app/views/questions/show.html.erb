@@ -17,7 +17,7 @@
         <td><%= answer.name %></td>
         <td><%= answer.content %></td>
         <td>[<%= link_to 'Edit',  edit_question_answer_path(@questions, answer) %>]
-          [<%= link_to 'Delete',   question_path(@questions, answer), method: :delete,
+          [<%= link_to 'Delete',   question_answer_path(@questions, answer), method: :delete,
                        data:{ confirm: "Are you sure?"}  %>]</td>
       </tr>
     <% end %>

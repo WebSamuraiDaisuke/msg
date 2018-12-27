@@ -41,6 +41,7 @@ class QuestionsController < ApplicationController
     @questions.destroy
     redirect_to root_path, notice: "Delete succeed"
   end
+
   private
 
   def strong_params
